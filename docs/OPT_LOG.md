@@ -1,5 +1,5 @@
 # Pikafish speedup log (auto-generated header; attempt details in ATTEMPTS section below)
-Generated 2026-10-28 17:28:51 UTC. Baseline = official master e9bd14d0 built with `make build` (g++ 14.2, no PGO), per ARCH.
+Generated 2026-10-28 17:55:38 UTC. Baseline = official master e9bd14d0 built with `make build` (g++ 14.2, no PGO), per ARCH.
 Equivalence per ARCH vs. that ARCH's own baseline: single-thread `go depth 14` and `16`, startpos+24 FENs, every iteration line (score/nodes/hashfull/pv) + bestmove + bench node count.
 Bench: `bench 16 1 14`, 1 thread pinned, interleaved A/B, median ms. A-vs-A noise ≈ ±3%.
 
@@ -22,6 +22,7 @@ Bench: `bench 16 1 14`, 1 thread pinned, interleaved A/B, median ms. A-vs-A nois
 
 | optimization | x64 | x64-sse3-popcnt | x64-ssse3 | x64-sse41-popcnt | x64-avx2 | x64-bmi2 | x64-avxvnni | x64-avx512 | x64-vnni512 | x64-avx512icl |
 |---|---|---|---|---|---|---|---|---|---|---|
+| PGO (make profile-build) | +0.1 ~ | +1.5 cand | +6.5 cand(unconfirmed) | - | - | - | - | - | - | - |
 
 ## Attempt notes
 
