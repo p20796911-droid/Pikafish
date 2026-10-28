@@ -1,5 +1,5 @@
 # Pikafish speedup log (auto-generated header; attempt details in ATTEMPTS section below)
-Generated 2026-10-28 19:12:40 UTC. Baseline = official master e9bd14d0 built with `make build` (g++ 14.2, no PGO), per ARCH.
+Generated 2026-10-28 19:18:43 UTC. Baseline = official master e9bd14d0 built with `make build` (g++ 14.2, no PGO), per ARCH.
 Equivalence per ARCH vs. that ARCH's own baseline: single-thread `go depth 14` and `16`, startpos+24 FENs, every iteration line (score/nodes/hashfull/pv) + bestmove + bench node count.
 Bench: `bench 16 1 14`, 1 thread pinned, interleaved A/B, median ms. A-vs-A noise ≈ ±3% (shared VM) -> nothing inside noise is marked accepted.
 Status of work: see best-per-ARCH table; items marked cand are NOT accepted.
@@ -33,7 +33,7 @@ Status of work: see best-per-ARCH table; items marked cand are NOT accepted.
 | prefetch active threat rows in refresh: 4 lines | - | - | - | - | +0.8 ~ | - | - | - | - | +3.6 cand |
 | prefetch active threat rows in refresh: 16 lines (full row) | - | - | - | - | -2.1 ~ | - | - | - | - | -2.0 ~ |
 | prefetch PSQ rows (incremental+refresh): 4 lines | - | - | - | - | +0.2 ~ | - | - | - | - | -0.8 ~ |
-| sparse propagate u64 nnz bitset + u64 pop_lsb | -9.1 ~ | -0.4 ~ | -4.3 ~ | +0.8 ~ | +2.8 cand | +1.0 cand | +3.4 cand | - | - | - |
+| sparse propagate u64 nnz bitset + u64 pop_lsb | -9.1 ~ | -0.4 ~ | -4.3 ~ | +0.8 ~ | +2.8 cand | +1.0 cand | +3.4 cand | -6.7 ~ | +0.4 ~ | -2.1 ~ |
 | prefetch PSQ rows (incremental+refresh): 16 lines | - | - | - | - | -6.8 ~ | - | - | - | - | -9.1 ~ |
 | prefetch full rows: refresh threats + PSQ | - | - | - | - | -5.6 ~ | - | - | - | - | -1.8 ~ |
 
